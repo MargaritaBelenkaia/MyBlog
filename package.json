@@ -1,0 +1,28 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "description": "MEAN Stack app (Angular2, Bootstrap 4)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MargaritaBelenkaia/MyBlog.git"
+  },
+  "keywords": [
+    "Angular2",
+    "MEAN",
+    "Stack"
+  ],
+  "author": "Margarita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MargaritaBelenkaia/MyBlog/issues"
+  },
+  "homepage": "https://github.com/MargaritaBelenkaia/MyBlog#readme",
+  "dependencies": {
+    "express": "^4.15.5",
+    "mongoose": "^4.11.13"
+  }
+}
