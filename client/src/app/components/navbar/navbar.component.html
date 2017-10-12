@@ -26,19 +26,19 @@
     </ul>
     <ul class="navbar-nav navbar-right ml-auto">
       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#">Profile</a>
+        <a class="nav-link" routerLink="#">Profile</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#">Log</a>
+        <a class="nav-link" routerLink="#">Log</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#">Log In</a>
+        <a class="nav-link" routerLink="#">Log In</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#">Log Out</a>
-      </li>
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#">Register</a>
+        <a class="nav-link" routerLink="#">Log Out</a>
       </li>
     </ul>
   </div>
