@@ -6,26 +6,24 @@
             <span class="glyphicon glyphicon-repeat spinner"></span>
             <p>Loading.....</p>
         </div>
-
-        <div class="row show-hide-message" ng-show = "register.successMsg">
-            <div class="alert alert-success">{{ register.successMsg }}</div>
+ -->
+        <div class="show-hide-message">
+            <div [ngClass]="messageClass">
+                {{ message }}
+            </div>
         </div>
-
-
-        <div class="row show-hide-message" ng-show = "register.errorMsg">
-            <div class="alert alert-danger">{{ register.errorMsg }}</div>
-        </div> -->
 
         <!--THE FORM-->
         <form [formGroup]="form" (submit)="onRegisterSubmit()">
             <div class="form-group">
                 <label for="username"> Username: </label>
                 <div>
-                    <input class="form-control" type="text" name="username" placeholder="Username" formControlName="username">
+                    <input class="form-control" type="text" name="username" placeholder="Username" formControlName="username" (blur)='checkUsername()'>
                     <ul class="help-block">
                         <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required</li>
                         <li *ngIf="(form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength) && form.controls.username.dirty">Minimum characters: 3, maximum characters: 15</li>
                         <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Username must be alphanumeric</li>
+                        <li *ngIf="usernameMessage">{{ usernameMessage }}</li>
                     </ul>
                 </div>
             </div>
@@ -33,11 +31,12 @@
             <div class="form-group">
                 <label for="email"> E-mail: </label>
                 <div>
-                    <input class="form-control" type="text" name="email" placeholder="name@company.com" formControlName="email">
+                    <input class="form-control" type="text" name="email" placeholder="name@company.com" formControlName="email" (blur)='checkEmail()'>
                     <ul class="help-block">
                         <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</li>
                         <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength) && form.controls.email.dirty">Minimum characters: 5, maximum characters: 30</li>
                         <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid e-mail</li>
+                        <li *ngIf="emailMessage">{{ emailMessage }}</li>
                     </ul>
                 </div>
             </div>
@@ -66,16 +65,9 @@
             </div>
 
 
-            <button [disabled]="!form.valid" class="btn btn-secondary btn-block btn-md" type="submit">REGISTRATION</button>
+            <button [disabled]="!form.valid || processing || !emailValid || !usernameValid" class="btn btn-secondary btn-block btn-md" type="submit">REGISTRATION</button>
 
         </form>
-        
-        <br>
-
-<!--         <p>Username: {{ form.controls.username.value }}</p>
-        <p>Email: {{ form.controls.email.value }}</p>
-        <p>Password: {{ form.controls.password.value }}</p> -->
-
 </div>
 
 
